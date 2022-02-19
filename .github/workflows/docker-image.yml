@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build pulseaudio-module-xrdp
 
 on:
   workflow_dispatch:
