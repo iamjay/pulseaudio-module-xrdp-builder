@@ -1,0 +1,26 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+    - name: Build
+      run: |
+        DOCKER_BUILDKIT=1 docker build --target export-output --output out . 
+        VERSION=$(<out/version.txt)
+        tar czf "pulseaudio-module-xrdp-${VERSION/#1:/}.tar.gz" -C out .
+
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        draft: true
+        files: pulseaudio-module-xrdp-*.tar.gz
