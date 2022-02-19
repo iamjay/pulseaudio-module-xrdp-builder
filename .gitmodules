@@ -1,0 +1,3 @@
+[submodule "pulseaudio-module-xrdp"]
+	path = pulseaudio-module-xrdp
+	url = https://github.com/neutrinolabs/pulseaudio-module-xrdp.git
