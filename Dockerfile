@@ -1,4 +1,4 @@
-FROM ubuntu:21.10 AS build-stage
+FROM ubuntu:22.04 AS build-stage
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y build-essential dpkg-dev libpulse-dev git autoconf libtool sudo debootstrap schroot lsb-release \
